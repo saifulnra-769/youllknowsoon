@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10090b">
+<title>For Nida ❤️ | From Saiful</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #10090b;
+  --bg2: #190d11;
+  --card: #211217;
+  --red: #e5394b;
+  --red-light: #ff6574;
+  --white: #fff4f3;
+  --muted: #b49ca1;
+  --line: #49232c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+body.locked { overflow: hidden; }
+
+button { font: inherit; cursor: pointer; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--red); color: white; }
+
+/* BACKGROUND */
+.background-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 15%, #5e101b35, transparent 42%),
+    radial-gradient(ellipse at 85% 65%, #8f142020, transparent 40%),
+    var(--bg);
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.particle {
+  position: absolute;
+  bottom: -35px;
+  color: var(--red-light);
+  opacity: 0;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  10% { opacity: .7; }
+  100% {
+    transform: translateY(-110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* INTRO OVERLAY */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #42131b 0%, #1a0b10 43%, #0b0709 100%);
+  transition: opacity .8s, visibility .8s;
+}
+
+.intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-inner {
+  width: 100%;
+  max-width: 520px;
+}
+
+.intro-logo {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #9c3444;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  color: var(--red-light);
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  box-shadow: 0 0 45px #e5394b20;
+}
+
+.eyebrow {
+  color: #f07884;
+  font-size: 10px;
+  letter-spacing: 4px;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 9vw, 70px);
+  font-weight: 500;
+  line-height: 1.13;
+  margin: 20px 0;
+}
+
+.intro h1 em {
+  display: block;
+  color: var(--red-light);
+  font-weight: 500;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  max-width: 360px;
+  margin: 0 auto 30px;
+}
+
+.btn {
+  border: 1px solid var(--red);
+  border-radius: 4px;
+  background: var(--red);
+  color: white;
+  padding: 15px 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #b91e31;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #e5394b35;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: #75313d;
+}
+
+.btn-outline:hover { background: #39141b; }
+
+.intro-small {
+  display: block;
+  margin-top: 22px;
+  color: #8e7278;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff0a;
+}
+
+.brand {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.brand span { color: var(--red-light); }
+
+.nav-note {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 22px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero .eyebrow { margin-bottom: 22px; }
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(48px, 10vw, 100px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.12;
+}
+
+.hero h1 span {
+  display: block;
+  font-style: italic;
+  color: var(--red-light);
+}
+
+.hero-description {
+  color: var(--muted);
+  max-width: 490px;
+  margin: 25px auto 30px;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #8e747a;
+}
+
+.hero-bottom span { color: var(--red-light); }
+
+/* SHARED SECTIONS */
+section.content-section {
+  padding: 105px 22px;
+  border-top: 1px solid #ffffff08;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(33px, 6vw, 53px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.section-title em {
+  color: var(--red-light);
+  font-weight: 500;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  margin-top: 18px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s, transform .8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MESSAGE */
+.message-section { background: #130a0d; }
+
+.message-card {
+  max-width: 750px;
+  margin: auto;
+  position: relative;
+  padding: clamp(28px, 6vw, 60px);
+  background: linear-gradient(145deg, #241116, #160c10);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.message-card::before {
+  content: "“";
+  position: absolute;
+  top: 3px;
+  right: 25px;
+  font-family: "Playfair Display", serif;
+  font-size: 100px;
+  color: #e5394b1c;
+}
+
+.message-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--red-light);
+  margin-bottom: 24px;
+}
+
+.message-card p {
+  color: #cbb9bd;
+  font-size: 14px;
+  line-height: 2.1;
+  margin-bottom: 18px;
+}
+
+.signature {
+  padding-top: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--red-light);
+}
+
+.signature small {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* GALLERY */
+.gallery-section { background: var(--bg); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  padding: 10px;
+  background: linear-gradient(145deg, #27141a, #160d10);
+  border: 1px solid #48212b;
+  border-radius: 6px;
+  transition: transform .35s, border-color .35s;
+}
+
+.photo-card:hover {
+  transform: translateY(-7px);
+  border-color: #a43a4b;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: #29131a;
+}
+
+.photo-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin: 17px 5px 7px;
+}
+
+.photo-card p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 5px 10px;
+}
+
+/* QUOTE */
+.quote-section {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #47121b4a, transparent 65%),
+    #150a0e;
+}
+
+.quote-mark {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  color: var(--red);
+}
+
+.quote-text {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 5vw, 42px);
+  line-height: 1.6;
+}
+
+.quote-text em { color: var(--red-light); }
+
+.quote-author {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+/* LOVE LETTER */
+.letter-section { background: #130a0d; }
+
+.letter-envelope {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  padding: 45px 25px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, #241116, #160c10);
+  border-radius: 8px;
+}
+
+.envelope-icon {
+  font-size: 52px;
+  display: inline-block;
+  margin-bottom: 20px;
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.08); }
+  20% { transform: scale(1); }
+}
+
+.letter-content {
+  display: none;
+  text-align: left;
+  white-space: pre-line;
+  max-width: 540px;
+  margin: 28px auto 0;
+  padding: 25px;
+  border-left: 2px solid var(--red);
+  background: #10090b;
+  color: #d5c2c7;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.letter-content.open { display: block; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 45px 20px 35px;
+  border-top: 1px solid #ffffff0a;
+  background: #0b0709;
+}
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+}
+
+.footer-logo span { color: var(--red-light); }
+
+footer p {
+  font-size: 11px;
+  color: #9b8088;
+  line-height: 2;
+  margin-top: 12px;
+}
+
+.footer-credit {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #65444c;
+  margin-top: 24px;
+}
+
+/* MUSIC BUTTON */
+.music-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #a73b4b;
+  background: #240e14;
+  color: #ff8995;
+  font-size: 20px;
+  box-shadow: 0 5px 30px #0006;
+}
+
+.music-button.playing { animation: musicPulse 2s infinite; }
+
+@keyframes musicPulse {
+  50% { box-shadow: 0 0 25px #e5394b55; }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .navbar { padding: 20px 6%; }
+  .nav-note { font-size: 8px; letter-spacing: 1px; }
+  section.content-section { padding: 75px 18px; }
+  .gallery { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .photo-card img { height: 200px; }
+  .photo-card:last-child { grid-column: 1 / -1; }
+  .photo-card:last-child img { height: 260px; }
+  .message-card { padding: 28px 23px; }
+}
+
+@media (max-width: 380px) {
+  .gallery { grid-template-columns: 1fr; }
+  .photo-card:last-child { grid-column: auto; }
+  .photo-card img, .photo-card:last-child img { height: 270px; }
+  .hero h1 { font-size: 45px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div class="background-glow"></div>
+<div id="particles"></div>
+
+<!-- INTRO / KEJUTAN PEMBUKA -->
+<div class="intro" id="intro">
+  <div class="intro-inner">
+    <div class="intro-logo">S <span style="color:#e5394b">&</span> N</div>
+    <div class="eyebrow">A little surprise for my wife</div>
+    <h1>For My <em>Favorite Person.</em></h1>
+    <p>
+      Hai, Ade Comel. ❤️<br>
+      Mas punya sesuatu yang spesial untuk Ade.
+      Luangkan sedikit waktu Ade dan buka kejutan kecil dari Mas.
+    </p>
+    <button class="btn" id="openButton" onclick="openSurprise()">
+      BUKA KEJUTAN ❤️
+    </button>
+    <span class="intro-small">MADE WITH LOVE BY YOUR HUSBAND</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#home" class="brand">S<span>.</span>N</a>
+  <div class="nav-note">A SPECIAL DAY · JUST FOR YOU</div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-content reveal">
+    <div class="eyebrow">for my wife 28</div>
+    <h1>Happy Birthday,<span>Nida Rohadatul Aisy.</span></h1>
+    <p class="hero-description">
+      Untuk perempuan istimewa yang kehadirannya membuat
+      banyak hal terasa lebih indah. Hari ini, semua halaman
+      ini Mas persembahkan khusus untuk Ade.
+    </p>
+    <div class="hero-actions">
+      <button class="btn" onclick="goTo('ucapan')">
+        BACA UCAPANKU ❤️
+      </button>
+      <button class="btn btn-outline" onclick="goTo('kenangan')">
+        LIHAT KENANGAN
+      </button>
+    </div>
+  </div>
+  <div class="hero-bottom">SCROLL TO EXPLORE <span>↓</span></div>
+</header>
+
+<!-- UCAPAN -->
+<section class="content-section message-section" id="ucapan">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="section-label">01 — Words from my heart</div>
+      <h2 class="section-title">Untukmu,<br><em>Sayangku.</em></h2>
+      <p class="section-description">
+        Ada hal-hal yang mungkin tidak selalu bisa Mas ucapkan
+        secara langsung. Jadi, hari ini Mas menuliskannya untuk Ade.
+      </p>
+    </div>
+
+    <article class="message-card">
+      <h3>Happy birthday, Ade Sayang. ❤️</h3>
+
+      <p>
+        Selamat ulang tahun yaa, ade cantiknya Mas. 🥹❤️ Hari ini 
+        adalah hari yang spesial, hari di mana perempuan yang Mas sayang
+        bertambah usia. Mas berdoa semoga di umur Ade yang baru ini, 
+        Ade selalu diberikan kesehatan, panjang umur, kebahagiaan, rezeki yang 
+        lancar, dan segala urusan Ade dimudahkan. Semoga semua impian dan keinginan
+        Ade satu per satu bisa terwujud, dan semoga Ade selalu dikelilingi oleh
+        orang-orang baik yang tulus menyayangi Ade. Aamiin ya Allah. 🤲🏻💗
+        
+      </p>
+
+      <p>
+        Ade sayang, terima kasih yaa sudah hadir di kehidupan Mas dan menjadi 
+        bagian yang begitu berarti buat Mas. Terima kasih sudah memberikan 
+        warna di hari-hari Mas, sudah menjadi alasan Mas tersenyum, dan sudah
+        menemani Mas sampai sejauh ini. Mas sadar kalau Mas masih jauh dari kata 
+        sempurna, masih banyak kekurangan, dan terkadang mungkin Mas melakukan hal-hal
+        yang bikin Ade kecewa atau sedih. Tapi percayalah, Ade, Mas selalu ingin belajar 
+        menjadi lebih baik, bukan karena Mas sempurna, tetapi karena Mas ingin Ade mendapatkan cinta 
+        yang tulus dan kesungguhan dari Mas. 
+      </p>
+
+      <p>
+        Di umur Ade yang sekarang, Mas berharap Ade bisa semakin bahagia, semakin kuat menghadapi apa pun, 
+        dan semakin sayang sama diri Ade sendiri. Kalau suatu hari Ade capek 
+        sama dunia, jangan merasa harus menghadapi semuanya sendirian yaa. Ada Mas 
+        yang ingin menjadi tempat Ade bercerita, tempat Ade mengeluh, dan tempat Ade pulang 
+        ketika semuanya terasa berat. Mas mungkin nggak selalu punya solusi untuk setiap masalah Ade, 
+        tapi Mas akan berusaha selalu mendengarkan dan menemani Ade sebisa Mas. Mas ingin melihat Ade tersenyum 
+        dengan tulus, karena kebahagiaan Ade juga menjadi salah satu kebahagiaan Mas. 🥺💕
+      </p>
+
+      <p>
+        Mas juga berdoa semoga hubungan kita selalu dijaga oleh Allah, diberikan kesabaran, dan dijauhkan 
+        dari hal-hal yang bisa membuat kita saling menyakiti. Semoga kita bisa terus bersama, belajar memahami
+        kekurangan masing-masing, saling menguatkan saat salah satu dari kita sedang jatuh, dan saling menggenggam 
+        saat keadaan sedang tidak mudah. Mas nggak bisa menjanjikan kalau perjalanan kita nanti akan selalu indah, 
+        tetapi Mas berharap kita selalu punya alasan untuk bertahan dan memilih satu sama lain. Mas ingin hubungan ini 
+        bukan hanya tentang hari ini, tetapi juga tentang masa depan yang pelan-pelan kita perjuangkan bersama. Aamiin. 🤲🏻💍❤️
+      </p>
+
+      <p>
+        Ade sayang, kalau nanti suatu hari kita berhasil melewati banyak hal bersama, Mas berharap kita bisa 
+        melihat ke belakang dan tersenyum, mengingat betapa banyak proses yang sudah kita lalui. Mas ingin 
+        menjadi seseorang yang bukan cuma hadir dalam cerita bahagia Ade, tetapi juga seseorang yang tetap ada 
+        ketika Ade sedang sedih dan kehilangan semangat. Semoga suatu saat nanti, Mas bisa membahagiakan Ade lebih 
+        dari yang bisa Mas lakukan sekarang, mewujudkan keinginan-keinginan Ade, dan membuat Ade merasa bahwa kesabaran 
+        serta perjuangan kita selama ini tidak pernah sia-sia. Mas ingin terus bertumbuh bersama Ade, sampai kita bisa 
+        membuktikan bahwa cinta yang dijaga dengan ketulusan, doa, dan usaha bisa membawa kita menuju masa depan yang indah. ❤️
+      </p>
+
+      <p>
+        Sekali lagi, selamat ulang tahun,ade kesayangan Mas. 🎂🌹 Jangan pernah lupa kalau Ade 
+        adalah seseorang yang begitu berharga dan pantas mendapatkan banyak kebahagiaan. Terima kasih sudah lahir ke dunia, 
+        terima kasih sudah menjadi bagian dari hidup Mas, dan terima kasih karena sampai hari ini Ade masih menjadi seseorang 
+        yang ingin Mas jaga dan sayangi. Semoga semua doa baik selalu menyertai langkah Ade, dan semoga Allah memberikan jalan 
+        terbaik untuk hubungan kita, sampai kelak kita bisa bersama bukan hanya sebagai sepasang kekasih, tetapi juga sebagai dua 
+        orang yang saling menemani dalam kehidupan yang lebih serius. Mas sayang Ade, hari ini, esok, dan semoga sampai hari-hari 
+        yang akan datang. I love you so much, Ade sayang. ❤️
+      </p>
+
+      <div class="signature">
+        With love, Mas .
+        <small>Untuk Istriku Yang Comell ❤️</small>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- GALERI FOTO -->
+<section class="content-section gallery-section" id="kenangan">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="section-label">02 — Little moments, big memories</div>
+      <h2 class="section-title">Our Little <em>Gallery.</em></h2>
+      <p class="section-description">
+        Beberapa memory tentang kita
+      </p>
+    </div>
+
+    <div class="gallery">
+      <article class="photo-card">
+        <img src="foto1.jpg" alt="Foto kenangan pertama"
+             loading="lazy">
+        <h3>How the two of us first met</h3>
+      </article>
+
+      <article class="photo-card">
+        <img src="foto2.jpg" alt="Foto kenangan kedua"
+             loading="lazy">
+        <h3>Your Smile</h3>
+      </article>
+
+      <article class="photo-card">
+        <img src="foto3.jpg" alt="Foto kenangan ketiga"
+             loading="lazy">
+        <h3>Little Memories</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PESAN ROMANTIS -->
+<section class="content-section quote-section">
+  <div class="container reveal">
+    <div class="section-label">03 — A little reminder</div>
+    <div class="quote-mark">“</div>
+    <p class="quote-text">
+      Dari sekian banyak hal indah di dunia,
+      aku bersyukur karena punya kesempatan
+      untuk <em>mengenal kamu.</em>
+    </p>
+    <p class="quote-author">— SAIFUL, FOR NIDA ❤️</p>
+  </div>
+</section>
+
+<!-- SURAT CINTA -->
+<section class="content-section letter-section" id="surat">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="section-label">04 — One last surprise</div>
+      <h2 class="section-title">A Letter <em>For You.</em></h2>
+      <p class="section-description">
+        Ada satu pesan lagi yang sengaja aku simpan
+        di sini. Buka saat kamu siap membacanya. 💌
+      </p>
+    </div>
+
+    <div class="letter-envelope">
+      <div class="envelope-icon">💌</div>
+      <h3 style="font-family:'Playfair Display',serif;
+                 font-size:25px;font-weight:500;margin-bottom:15px">
+        Dear, Sayang.
+      </h3>
+      <p style="color:var(--muted);font-size:12px;line-height:2;
+                margin-bottom:25px">
+        A small letter, written just for you.
+      </p>
+
+      <button class="btn" id="letterButton" onclick="toggleLetter()">
+        BUKA SURAT CINTA ❤️
+      </button>
+
+      <div class="letter-content" id="letterContent">
+       I LOVE YOU MORE-MORE SAYANGG
+
+With all my love,
+Saiful ❤️
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">S<span>&</span>N</div>
+  <p>
+    Made with love, just for you.<br>
+    Happy Birthday, Istri Mas yang comel. ❤️
+  </p>
+  <div class="footer-credit">A LITTLE WEBSITE · A LOT OF LOVE</div>
+</footer>
+
+<!-- MUSIK -->
+<audio id="bgMusic" src="lagu.mp3" loop preload="none"></audio>
+<button class="music-button" id="musicButton"
+        onclick="toggleMusic()" title="Putar atau hentikan musik"
+        aria-label="Putar atau hentikan musik">♫</button>
+
+<script>
+/* ==========================================
+   1. PENGATURAN WEBSITE
+========================================== */
+
+const CONFIG = {
+  namaPasangan: "Nida Rohadatul Aisy",
+  namaPanggilan: "Sayang",
+  namaPengirim: "Saiful"
+};
+
+document.title = `For ${CONFIG.namaPasangan} ❤️ | From ${CONFIG.namaPengirim}`;
+
+/* ==========================================
+   2. BUKA KEJUTAN
+========================================== */
+
+function openSurprise() {
+  const intro = document.getElementById("intro");
+
+  intro.classList.add("hide");
+  document.body.classList.remove("locked");
+
+  // Animasi hati ketika kejutan dibuka
+  for (let i = 0; i < 24; i++) {
+    setTimeout(createParticle, i * 65);
+  }
+
+  // Musik tidak dipaksa autoplay.
+  // Pengunjung bisa menekan tombol musik sendiri.
+}
+
+/* ==========================================
+   3. NAVIGASI
+========================================== */
+
+function goTo(sectionId) {
+  document.getElementById(sectionId).scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+/* ==========================================
+   4. SURAT CINTA
+========================================== */
+
+function toggleLetter() {
+  const letter = document.getElementById("letterContent");
+  const button = document.getElementById("letterButton");
+
+  const isOpen = letter.classList.toggle("open");
+
+  button.textContent = isOpen
+    ? "TUTUP SURAT 💌"
+    : "BUKA SURAT CINTA ❤️";
+
+  if (isOpen) {
+    for (let i = 0; i < 12; i++) {
+      setTimeout(createParticle, i * 100);
+    }
+
+    setTimeout(() => {
+      letter.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, 100);
+  }
+}
+
+/* ==========================================
+   5. MUSIK BACKGROUND
+========================================== */
+
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+async function toggleMusic() {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicButton.classList.add("playing");
+      musicButton.textContent = "Ⅱ";
+    } catch (error) {
+      alert(
+        "Musik belum dapat diputar. Pastikan file lagu.mp3 " +
+        "tersedia di folder yang sama dengan index.html."
+      );
+    }
+  } else {
+    music.pause();
+    musicButton.classList.remove("playing");
+    musicButton.textContent = "♫";
+  }
+}
+
+music.addEventListener("ended", () => {
+  musicButton.classList.remove("playing");
+  musicButton.textContent = "♫";
+});
+
+/* ==========================================
+   6. EFEK HATI MELAYANG
+========================================== */
+
+const particles = document.getElementById("particles");
+const symbols = ["♥", "♡", "❤"];
+
+function createParticle() {
+  // Batasi jumlah elemen untuk menjaga performa
+  if (particles.childElementCount > 35) return;
+
+  const element = document.createElement("span");
+  element.className = "particle";
+  element.textContent =
+    symbols[Math.floor(Math.random() * symbols.length)];
+
+  element.style.left = Math.random() * 100 + "%";
+  element.style.fontSize = (12 + Math.random() * 17) + "px";
+  element.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+  particles.appendChild(element);
+
+  element.addEventListener("animationend", () => {
+    element.remove();
+  });
+}
+
+setInterval(createParticle, 1100);
+
+/* ==========================================
+   7. ANIMASI SAAT SCROLL
+========================================== */
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach(element => {
+    element.classList.add("visible");
+  });
+}
+
+/* ==========================================
+   8. FOTO CADANGAN JIKA FILE TIDAK ADA
+========================================== */
+
+document.querySelectorAll(".photo-card img").forEach(img => {
+  img.addEventListener("error", () => {
+    img.style.display = "block";
+    img.style.objectFit = "contain";
+    img.alt = "Tambahkan foto kamu dengan nama file yang sesuai";
+    img.src = "data:image/svg+xml," + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="500" height="600">
+        <rect width="100%" height="100%" fill="#241116"/>
+        <text x="50%" y="46%" fill="#ff6574" font-size="58"
+          text-anchor="middle">♥</text>
+        <text x="50%" y="57%" fill="#d6b6bd" font-size="20"
+          text-anchor="middle">Your Memory</text>
+        <text x="50%" y="63%" fill="#9c7c85" font-size="13"
+          text-anchor="middle">Tambahkan foto di folder website</text>
+      </svg>
+    `);
+  }, { once: true });
+});
+</script>
+
+</body>
+</html>
